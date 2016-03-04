@@ -1,0 +1,12 @@
+# Theme
+ZSH_THEME="pygmalion"
+
+# Plugins
+plugins=(git colored-man colorize github hira vagrant virtualenv pip python brew osx zsh-syntax-hightlighting)
+
+# oh-my-zsh
+export ZSH=/Users/kevin/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+# zshenv
+source /Users/kevin/Github/mac-setup/iTerm/zshenv.sh
