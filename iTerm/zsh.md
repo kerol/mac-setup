@@ -1,6 +1,7 @@
 # Zsh
 
-We'll install `zsh` for all the features offered by `oh-my-zsh`. The installation and usage is really intutive. The `env.sh` is a config file we maintain so as to not pollute the `~/.zshrc` too much. `env.sh` holds aliases, exports, path changes etc.
+We'll install `zsh` for all the features offered by `oh-my-zsh`. The installation and usage is really intutive. The `zshenv.sh` is a config file we maintain so as to not pollute the `~/.zshrc` too much. `zshenv.sh` holds aliases, exports, path changes etc.
+`Notes:`Keep only .zsh-update .zsh_history .zshrc in your home folder.
 
 ### Zsh
 
