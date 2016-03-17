@@ -1,4 +1,4 @@
-" Vim color file - based on desert
+" Vim color file
 " Maintainer:	Hans Fugal <hans@fugal.net>
 " Last Change:	$Date: 2004/06/13 19:30:30 $
 " Last Change:	$Date: 2004/06/13 19:30:30 $
@@ -21,6 +21,52 @@ if version > 580
 endif
 let g:colors_name="desert"
 
+hi Normal	guifg=White guibg=grey20
+
+" highlight groups
+hi Cursor	guibg=khaki guifg=slategrey
+"hi CursorIM
+"hi Directory
+"hi DiffAdd
+"hi DiffChange
+"hi DiffDelete
+"hi DiffText
+"hi ErrorMsg
+hi VertSplit	guibg=#c2bfa5 guifg=grey50 gui=none
+hi Folded	guibg=grey30 guifg=gold
+hi FoldColumn	guibg=grey30 guifg=tan
+hi IncSearch	guifg=slategrey guibg=khaki
+"hi LineNr
+hi ModeMsg	guifg=goldenrod
+hi MoreMsg	guifg=SeaGreen
+hi NonText	guifg=LightBlue guibg=grey30
+hi Question	guifg=springgreen
+hi Search	guibg=peru guifg=wheat
+hi SpecialKey	guifg=yellowgreen
+hi StatusLine	guibg=#c2bfa5 guifg=black gui=none
+hi StatusLineNC	guibg=#c2bfa5 guifg=grey50 gui=none
+hi Title	guifg=indianred
+hi Visual	gui=none guifg=khaki guibg=olivedrab
+"hi VisualNOS
+hi WarningMsg	guifg=salmon
+"hi WildMenu
+"hi Menu
+"hi Scrollbar
+"hi Tooltip
+
+" syntax highlighting groups
+hi Comment	guifg=SkyBlue
+hi Constant	guifg=#ffa0a0
+hi Identifier	guifg=palegreen
+hi Statement	guifg=khaki
+hi PreProc	guifg=indianred
+hi Type		guifg=darkkhaki
+hi Special	guifg=navajowhite
+"hi Underlined
+hi Ignore	guifg=grey40
+"hi Error
+hi Todo		guifg=orangered guibg=yellow2
+
 " color terminal definitions
 hi SpecialKey	ctermfg=darkgreen
 hi NonText	cterm=bold ctermfg=darkblue
@@ -32,10 +78,8 @@ hi MoreMsg	ctermfg=darkgreen
 hi ModeMsg	cterm=NONE ctermfg=brown
 hi LineNr	ctermfg=3
 hi Question	ctermfg=green
-hi StatusLine	cterm=bold,reverse ctermfg=lightgray
+hi StatusLine	cterm=bold,reverse
 hi StatusLineNC cterm=reverse
-hi ColorColumn  ctermbg=NONE
-hi SignColumn   ctermbg=NONE
 hi VertSplit	cterm=reverse
 hi Title	ctermfg=5
 hi Visual	cterm=reverse
@@ -61,4 +105,10 @@ hi Ignore	ctermfg=darkgrey
 hi Error	cterm=bold ctermfg=7 ctermbg=1
 
 
-"vim: sw=4
+"" My own overrided settings
+hi Normal     ctermfg=246
+hi Identifier ctermfg=128 cterm=none
+hi Statement  ctermfg=6
+hi Comment    ctermfg=58
+hi Type       ctermfg=26
+hi Todo       ctermfg=0 ctermbg=184 cterm=bold
