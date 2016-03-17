@@ -19,4 +19,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 export EDITOR='vim'
 
 # Alias
-alias ls="ls -F"
+alias ls="ls -G"
+export LSCOLORS=exfxcxdxbxexexabagacad

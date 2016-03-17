@@ -1,0 +1,103 @@
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
+" Vundle Plugins
+" --------------
+Plugin 'scrooloose/nerdtree'
+" NERDTree settings
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let NERDTreeIgnore=['\.pyc$', '\~$']
+
+Plugin 'vim-airline/vim-airline'
+" vim-airline settings
+let g:airline_powerline_fonts=0
+let g:airline#extensions#branch#enabled = 1
+
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+Plugin 'davidhalter/jedi-vim'
+" jedi-vim settings
+let g:jedi#auto_initialization = 1
+let g:jedi#auto_vim_configuration = 1
+let g:jedi#popup_on_dot = 1
+let g:jedi#auto_close_doc = 1
+let g:jedi#show_call_signatures = 1
+let g:jedi#smart_auto_mappings = 1
+
+Plugin 'ervandew/supertab'
+
+Plugin 'mattn/emmet-vim'
+let g:user_emmet_mode='n'
+let g:user_emmet_install_global = 0
+autocmd Filetype html,css EmmetInstall
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+
+
+
+" General setting
+set encoding=utf-8
+set fileformats=unix,dos,mac
+set nu
+set backspace=2
+
+" Colors and syntax hilighting
+syntax on
+colorscheme myterm
+
+" Split Layouts
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Command line
+set cmdheight=2
+set laststatus=2
+set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
+set showcmd
+
+" Tab Settings
+set smarttab
+set tabstop=8
+
+
+" Python support
+" --------------
+let python_highlight_all=1
+
+
+" HTML support
+" ------------
+autocmd FileType xml,html,htmljinja,htmldjango setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
