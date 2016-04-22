@@ -9,7 +9,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
@@ -17,11 +17,11 @@ Plugin 'VundleVim/Vundle.vim'
 " --------------
 Plugin 'scrooloose/nerdtree'
 " NERDTree settings
-autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeIgnore=['\.pyc$', '\~$']
+"autocmd vimenter * NERDTree
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"let g:NERDTreeDirArrowExpandable = '▸'
+"let g:NERDTreeDirArrowCollapsible = '▾'
+"let NERDTreeIgnore=['\.pyc$', '\~$']
 
 Plugin 'vim-airline/vim-airline'
 " vim-airline settings
@@ -66,12 +66,13 @@ filetype plugin indent on    " required
 " General setting
 set encoding=utf-8
 set fileformats=unix,dos,mac
-set nu
+"set nu
 set backspace=2
+set autoindent
 
 " Colors and syntax hilighting
 syntax on
-colorscheme myterm
+colorscheme luna
 
 " Split Layouts
 set splitbelow
@@ -89,7 +90,7 @@ set showcmd
 
 " Tab Settings
 set smarttab
-set tabstop=8
+set tabstop=4
 
 
 " Python support
