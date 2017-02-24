@@ -1,80 +1,42 @@
+""""""""""""""""""""""""""""""""""""
 set nocompatible              " required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-
-" Vundle Plugins
-" --------------
-Plugin 'scrooloose/nerdtree'
-" NERDTree settings
-"autocmd vimenter * NERDTree
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"let g:NERDTreeDirArrowExpandable = '▸'
-"let g:NERDTreeDirArrowCollapsible = '▾'
-"let NERDTreeIgnore=['\.pyc$', '\~$']
-
+Plugin 'VundleVim/Vundle.vim'
+" Vundle Plugins Start
+" --------------------
 Plugin 'vim-airline/vim-airline'
-" vim-airline settings
-let g:airline_powerline_fonts=0
-let g:airline#extensions#branch#enabled = 1
-
+let g:airline#extensions#branch#enabled=1
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
-" syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
-Plugin 'davidhalter/jedi-vim'
-" jedi-vim settings
-let g:jedi#auto_initialization = 1
-let g:jedi#auto_vim_configuration = 1
-let g:jedi#popup_on_dot = 1
-let g:jedi#auto_close_doc = 1
-let g:jedi#show_call_signatures = 1
-let g:jedi#smart_auto_mappings = 1
+call vundle#end()
+filetype plugin on
+" Vundle Plugins End
+" ------------------
 
-Plugin 'ervandew/supertab'
-
-Plugin 'mattn/emmet-vim'
-let g:user_emmet_mode='n'
-let g:user_emmet_install_global = 0
-autocmd Filetype html,css EmmetInstall
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-
-
-
-
-" General setting
+""""""""""""""""""""""""""""""""""""
+" commen
 set encoding=utf-8
 set fileformats=unix,dos,mac
-"set nu
 set backspace=2
-set autoindent
+set shell=/usr/local/bin/zsh
+set updatetime=250
+"set foldmethod=indent
 
-" Colors and syntax hilighting
+" highlight
 syntax on
 colorscheme luna
+set hlsearch
+set ruler
+set nu
 
-" Split Layouts
+" split window
 set splitbelow
 set splitright
 nnoremap <C-J> <C-W><C-J>
@@ -82,23 +44,26 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Command line
+" nmap
+nnoremap ]h <Plug>GitGutterDisable
+nnoremap [h <Plug>GitGutterEnable
+
+" command line
 set cmdheight=2
 set laststatus=2
-set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 set showcmd
 
-" Tab Settings
-set smarttab
+" tab
+set autoindent
+set smartindent
+set cindent
+set shiftwidth=4
 set tabstop=4
+set expandtab
+set softtabstop=4
 
-
-" Python support
-" --------------
-let python_highlight_all=1
-
-
-" HTML support
-" ------------
-autocmd FileType xml,html,htmljinja,htmldjango setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd
+au FileType python nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
+au FileType lua nnoremap <buffer> <F5> :exec '!lua' shellescape(@%, 1)<cr>
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
